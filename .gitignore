@@ -1,0 +1,9 @@
+.env
+
+# DEVELOPMENT
+.vscode
+.claude
+context/
+CLAUDE.md
+.mcp.json
+

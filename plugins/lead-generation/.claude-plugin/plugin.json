@@ -1,0 +1,13 @@
+{
+  "name": "lead-generation",
+  "description": "Generate and enrich B2B/B2C leads using Apify scrapers across Google Maps, social media, and websites",
+  "version": "1.0.3",
+  "author": {
+    "name": "Apify",
+    "email": "support@apify.com"
+  },
+  "homepage": "https://apify.com",
+  "repository": "https://github.com/apify/claude-code-marketplace",
+  "license": "Apache-2.0",
+  "keywords": ["leads", "sales", "prospecting", "b2b", "scraping", "apify"]
+}
