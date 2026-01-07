@@ -43,6 +43,34 @@ Extracts emails, phone numbers, and social profiles from company websites to com
 
 Identifies users actively seeking products - perfect for targeted outreach.
 
+### TikTok Creator Outreach
+
+**E-commerce brand finding product reviewers:**
+> "Find TikTok creators who review tech gadgets: @techreviewer, @gadgetguy"
+
+Collects follower counts, engagement rates, bio links, and contact details for influencer partnership campaigns.
+
+### YouTube Partnership Discovery
+
+**SaaS company finding tutorial creators:**
+> "Get YouTube channel data for software tutorial creators"
+
+Extracts subscriber counts, engagement metrics, and channel contact info for sponsorship outreach.
+
+### Partnership Development
+
+**Tour company building local partnerships:**
+> "Find restaurants near Central Park for partnership proposals"
+
+Scrapes business details including websites and emails to propose collaborations like exclusive tour discounts.
+
+### CRM Data Enrichment
+
+**Sales team completing prospect records:**
+> "Add missing emails and phone numbers from these company Facebook pages"
+
+Fills gaps in your CRM by extracting verified contact info from social profiles.
+
 ## How to Use
 
 Just ask Claude naturally:
