@@ -6,6 +6,28 @@ Scrape local businesses from Google Maps with contact details, ratings, and revi
 
 **Pricing:** Event-based pricing starting at $4 per 1,000 places (FREE tier). Additional features and add-ons have separate pricing. See [detailed pricing](https://help.apify.com/en/articles/10774732-google-maps-scraper-is-going-to-pay-per-event-pricing).
 
+## Pricing Breakdown
+
+**Base cost:** $4 per 1,000 places
+
+Free tier includes: business name, address, phone, website, category, rating, coordinates
+
+### Optional Add-ons (per 1,000 places)
+- Filters (categoryFilterWords, placeMinimumStars, etc.): +$1.00
+- Place details (opening hours, popular times, review distribution): +$2.00
+- Company contacts (emails, social profiles from websites): +$2.00
+- Reviews: +$0.50 per 1,000 reviews
+- Images: +$0.50 per 1,000 images
+
+### Premium Add-ons 🚨
+- Business leads enrichment (decision-maker contacts): +$100.00
+- Social media profile enrichment (follower counts, verification): +$100.00
+
+**Example costs for 100 places:**
+- Free tier only: ~$0.40
+- With place details + contacts: ~$0.80
+- With business leads: ~$10.40 🚨
+
 ## Basic Search Parameters
 
 ```json
@@ -24,6 +46,313 @@ Scrape local businesses from Google Maps with contact details, ratings, and revi
 | `maxCrawledPlacesPerSearch` | integer | Max results per search term (leave empty for all) |
 | `language` | string | Results language (default: "en") - supports 100+ languages |
 | `allPlacesNoSearchAction` | string | Scrape all visible places on map: "all_places_no_search_ocr" or "all_places_no_search_mouse" |
+
+## Common Use Cases
+
+### Use Case 1: Basic Lead Discovery (FREE - Recommended)
+
+Find local businesses with essential contact information.
+
+**What you get:** Business name, address, phone, website, category, rating
+
+**Example: Find coffee shops in Seattle**
+
+```bash
+uv run --with python-dotenv --with requests \
+  ${CLAUDE_PLUGIN_ROOT}/skills/generating-leads/reference/scripts/run_actor.py \
+  --actor "compass/crawler-google-places" \
+  --input '{"searchStringsArray": ["coffee shops"], "locationQuery": "Seattle, USA", "maxCrawledPlacesPerSearch": 100, "language": "en"}' \
+  --output coffee-shops-seattle.csv \
+  --format csv
+```
+
+**Cost:** ~$0.40 for 100 results
+
+**AI Workflow:**
+1. Ask user for business type and location
+2. Ask user for output format (CSV or JSON)
+3. Run actor with free tier parameters only
+4. Report: "Found X businesses. Key fields: title, address, phone, website, rating"
+
+---
+
+### Use Case 2: Enriched Leads with Contact Details ($)
+
+Add email addresses and social media profiles scraped from business websites.
+
+**Additional data:** Emails, Facebook, Instagram, LinkedIn, Twitter, YouTube URLs
+
+**Example: Coffee shops with contact enrichment**
+
+```bash
+uv run --with python-dotenv --with requests \
+  ${CLAUDE_PLUGIN_ROOT}/skills/generating-leads/reference/scripts/run_actor.py \
+  --actor "compass/crawler-google-places" \
+  --input '{
+    "searchStringsArray": ["coffee shops"],
+    "locationQuery": "Seattle, USA",
+    "maxCrawledPlacesPerSearch": 100,
+    "language": "en",
+    "scrapeContacts": true
+  }' \
+  --output coffee-shops-enriched.csv \
+  --format csv
+```
+
+**Cost:** ~$0.60 for 100 results (+$0.20 for contact scraping)
+
+**AI Workflow:**
+1. When user asks for "emails" or "contact info", ask for confirmation:
+
+   > "I can enable contact enrichment to extract emails and social profiles from business websites. This adds ~$2 per 1,000 places ($0.20 for 100 places). Continue? (y/n)"
+
+2. If yes, add `"scrapeContacts": true` to input
+3. Report contact fields found: emails, social profiles
+
+---
+
+### Use Case 3: Deep Place Analysis ($)
+
+Get detailed information including opening hours, popular times, and review distribution.
+
+**Additional data:** Opening hours, popular times, review breakdown by star rating, questions & answers
+
+**Example: Coffee shops with place details**
+
+```bash
+uv run --with python-dotenv --with requests \
+  ${CLAUDE_PLUGIN_ROOT}/skills/generating-leads/reference/scripts/run_actor.py \
+  --actor "compass/crawler-google-places" \
+  --input '{
+    "searchStringsArray": ["coffee shops"],
+    "locationQuery": "Seattle, USA",
+    "maxCrawledPlacesPerSearch": 100,
+    "language": "en",
+    "scrapePlaceDetailPage": true
+  }' \
+  --output coffee-shops-details.csv \
+  --format csv
+```
+
+**Cost:** ~$0.60 for 100 results (+$0.20 for place details)
+
+**AI Workflow:**
+1. When user asks for "opening hours", "popular times", or "detailed info":
+
+   > "I can scrape the detailed place pages for opening hours, popular times, and review distribution. This adds ~$2 per 1,000 places ($0.20 for 100 places). Continue? (y/n)"
+
+2. If yes, add `"scrapePlaceDetailPage": true` to input
+
+---
+
+### Use Case 4: Review Collection ($)
+
+Extract customer reviews for sentiment analysis or competitor research.
+
+**Additional data:** Review text, author, rating, date, likes, response from owner
+
+**Example: Get recent reviews for top coffee shops**
+
+```bash
+uv run --with python-dotenv --with requests \
+  ${CLAUDE_PLUGIN_ROOT}/skills/generating-leads/reference/scripts/run_actor.py \
+  --actor "compass/crawler-google-places" \
+  --input '{
+    "searchStringsArray": ["coffee shops"],
+    "locationQuery": "Seattle, USA",
+    "maxCrawledPlacesPerSearch": 20,
+    "language": "en",
+    "maxReviews": 50,
+    "reviewsSort": "newest"
+  }' \
+  --output coffee-reviews.json \
+  --format json
+```
+
+**Cost:** ~$0.08 for 20 places + ~$0.05 for 1,000 reviews
+
+**AI Workflow:**
+1. When user asks for "reviews" or "customer feedback", ask:
+
+   > "How many reviews per place should I collect? (default: 50)"
+
+2. Explain cost if large number requested
+3. Suggest reviewsSort options: "newest", "mostRelevant", "highestRanking", "lowestRanking"
+
+---
+
+### Use Case 5: High-Quality Filtered Leads ($)
+
+Use filters to find only businesses matching specific criteria.
+
+**Filters available:**
+- Minimum star rating (2.0 to 4.5 stars)
+- Specific categories (4,000+ available)
+- Website presence (with/without website)
+- Exclude closed businesses
+
+**Example: Find only highly-rated coffee shops with websites**
+
+```bash
+uv run --with python-dotenv --with requests \
+  ${CLAUDE_PLUGIN_ROOT}/skills/generating-leads/reference/scripts/run_actor.py \
+  --actor "compass/crawler-google-places" \
+  --input '{
+    "searchStringsArray": ["coffee shops"],
+    "locationQuery": "Seattle, USA",
+    "maxCrawledPlacesPerSearch": 100,
+    "language": "en",
+    "placeMinimumStars": "four",
+    "website": "withWebsite",
+    "skipClosedPlaces": true
+  }' \
+  --output high-quality-coffee-shops.csv \
+  --format csv
+```
+
+**Cost:** ~$0.50 for 100 results (+$0.10 for filters)
+
+**AI Workflow:**
+1. When user mentions quality criteria ("highly rated", "with website", "open now"):
+
+   > "I can apply filters for minimum rating, website presence, and exclude closed places. This adds ~$1 per 1,000 places ($0.10 for 100 places). Continue? (y/n)"
+
+2. Map user requirements to filter parameters
+
+---
+
+### Use Case 6: B2B Lead Generation with Decision Makers ($$$)
+
+⚠️ **Premium feature - High cost**
+
+Extract decision-maker contacts (names, titles, emails, LinkedIn profiles) from businesses.
+
+**Additional data:** Employee names, job titles, work emails, LinkedIn URLs
+
+**Example: Find restaurant owners/managers**
+
+```bash
+uv run --with python-dotenv --with requests \
+  ${CLAUDE_PLUGIN_ROOT}/skills/generating-leads/reference/scripts/run_actor.py \
+  --actor "compass/crawler-google-places" \
+  --input '{
+    "searchStringsArray": ["restaurants"],
+    "locationQuery": "Seattle, USA",
+    "maxCrawledPlacesPerSearch": 20,
+    "language": "en",
+    "maximumLeadsEnrichmentRecords": 5,
+    "leadsEnrichmentDepartments": ["c_suite", "sales"]
+  }' \
+  --output restaurant-decision-makers.json \
+  --format json
+```
+
+**Cost:** ~$2.00 for 20 places (base) + ~$2.00 (premium add-on) = ~$4.00 for 20 places 🚨
+
+**AI Workflow:**
+1. When user asks for "decision makers", "employee contacts", or "people at company":
+
+   > "🚨 **Warning:** Business leads enrichment is a premium feature that costs $100 per 1,000 places (~$10 for 100 places, $2 for 20 places).
+   >
+   > This provides decision-maker names, job titles, work emails, and LinkedIn profiles.
+   >
+   > This is expensive and should only be used for high-value B2B outreach.
+   >
+   > Continue? (y/n)"
+
+2. If yes, set `maximumLeadsEnrichmentRecords` (max leads per place)
+3. Optionally set `leadsEnrichmentDepartments` to filter by role
+
+---
+
+### Use Case 7: Social Media Analytics ($$$)
+
+⚠️ **Premium feature - High cost**
+
+Get detailed social media analytics (follower counts, verification status, descriptions).
+
+**Additional data:** Facebook/Instagram/YouTube/TikTok/Twitter follower counts, verification badges, bios
+
+**Example: Coffee shops with Instagram analytics**
+
+```bash
+uv run --with python-dotenv --with requests \
+  ${CLAUDE_PLUGIN_ROOT}/skills/generating-leads/reference/scripts/run_actor.py \
+  --actor "compass/crawler-google-places" \
+  --input '{
+    "searchStringsArray": ["coffee shops"],
+    "locationQuery": "Seattle, USA",
+    "maxCrawledPlacesPerSearch": 20,
+    "language": "en",
+    "scrapeSocialMediaProfiles": {
+      "instagrams": true,
+      "facebooks": true
+    }
+  }' \
+  --output coffee-social-analytics.json \
+  --format json
+```
+
+**Cost:** ~$0.08 for 20 places (base) + ~$2.00 (premium add-on) = ~$2.08 for 20 places 🚨
+
+**AI Workflow:**
+1. When user asks for "follower counts", "social media analytics", or "Instagram stats":
+
+   > "🚨 **Warning:** Social media profile enrichment costs $100 per 1,000 places (~$10 for 100 places, $2 for 20 places).
+   >
+   > This provides detailed analytics: follower counts, verification status, profile descriptions.
+   >
+   > For basic social profile URLs (no analytics), use the free "scrapeContacts" option instead (+$2 per 1,000 places).
+   >
+   > Continue with full analytics? (y/n)"
+
+2. If no, suggest using `scrapeContacts: true` instead for basic URLs
+3. If yes, configure which platforms to analyze
+
+---
+
+## Cost Management Guidelines for AI
+
+### Default Behavior
+- Always start with FREE tier (searchStringsArray, locationQuery, maxCrawledPlacesPerSearch, language)
+- Never enable paid features without user confirmation
+
+### When to Ask About Paid Features
+
+**Low-cost add-ons (+$0.50 to +$2 per 1,000 places):**
+- User says "get emails" → Offer scrapeContacts
+- User says "opening hours" → Offer scrapePlaceDetailPage
+- User says "reviews" → Offer maxReviews
+- User says "highly rated only" → Offer filters
+
+**Prompt format:**
+> "I can enable [feature name] which adds ~$X per 1,000 places ($Y for Z places). Continue? (y/n)"
+
+**Premium add-ons (+$100 per 1,000 places):**
+- User says "decision makers", "employee contacts" → Warn about business leads enrichment
+- User says "follower counts", "social analytics" → Warn about social media enrichment
+
+**Prompt format:**
+> "🚨 **Warning:** [Feature name] is a premium feature that costs $100 per 1,000 places (~$N for your request).
+>
+> [Explain what data it provides]
+>
+> This is expensive and should only be used for [appropriate use case].
+>
+> Continue? (y/n)"
+
+### Cost Estimation
+
+Always show cost estimate before running:
+- Count how many places will be scraped (maxCrawledPlacesPerSearch)
+- Calculate: (places / 1000) × (base cost + add-on costs)
+- Show estimate: "Estimated cost: $X.XX"
+
+### Alternative Suggestions
+
+If user declines premium features, suggest free/cheaper alternatives:
+- "Decision makers" → "I can get basic contact info with scrapeContacts instead (+$2/1,000)"
+- "Social analytics" → "I can get social profile URLs with scrapeContacts instead (+$2/1,000)"
 
 ## Search Filters & Categories ($)
 
