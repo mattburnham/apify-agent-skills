@@ -1,7 +1,7 @@
 {
   "name": "lead-generation",
   "description": "Generate B2B/B2C leads by scraping Google Maps, websites, Instagram, TikTok, Facebook, LinkedIn, YouTube, and Google Search using Apify actors",
-  "version": "2.0.2",
+  "version": "2.0.6",
   "author": {
     "name": "Apify",
     "email": "support@apify.com"
@@ -9,5 +9,5 @@
   "homepage": "https://apify.com",
   "repository": "https://github.com/apify/claude-code-marketplace",
   "license": "Apache-2.0",
-  "keywords": ["leads", "sales", "prospecting", "b2b", "b2c", "scraping", "apify", "google-maps", "instagram", "tiktok", "facebook", "linkedin"]
+  "keywords": ["leads", "sales", "prospecting", "b2b", "b2c", "scraping", "apify", "google-maps", "instagram", "tiktok", "facebook", "linkedin", "youtube"]
 }

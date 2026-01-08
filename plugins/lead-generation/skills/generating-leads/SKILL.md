@@ -28,18 +28,29 @@ Task Progress:
 
 | User Need | Actor ID | Best For |
 |-----------|----------|----------|
-| Local businesses | `compass~crawler-google-places` | Restaurants, gyms, shops |
-| Contact enrichment | `vdrmota~contact-info-scraper` | Emails, phones from URLs |
-| Instagram profiles | `apify~instagram-profile-scraper` | Influencer discovery |
-| TikTok profiles | `clockworks~tiktok-profile-scraper` | Creator outreach |
-| Facebook pages | `apify~facebook-pages-scraper` | Business contacts |
-| Facebook groups | `apify~facebook-groups-scraper` | Buying intent signals |
-| Google Search | `apify~google-search-scraper` | Broad lead discovery |
-| YouTube channels | `apify~youtube-scraper` | Creator partnerships |
-| Google Maps emails | `apify~google-maps-email-extractor` | Direct email extraction |
-| LinkedIn profiles | `apify~linkedin-profile-scraper` | B2B prospecting |
+| Local businesses | `compass/crawler-google-places` | Restaurants, gyms, shops |
+| Contact enrichment | `vdrmota/contact-info-scraper` | Emails, phones from URLs |
+| Instagram profiles | `apify/instagram-profile-scraper` | Influencer discovery |
+| TikTok profiles | `clockworks/tiktok-profile-scraper` | Creator outreach |
+| Facebook pages | `apify/facebook-pages-scraper` | Business contacts |
+| Facebook groups | `apify/facebook-groups-scraper` | Buying intent signals |
+| Google Search | `apify/google-search-scraper` | Broad lead discovery |
+| YouTube channels | `apify/youtube-scraper` | Creator partnerships |
+| Google Maps emails | `poidata/google-maps-email-extractor` | Direct email extraction |
 
-See [reference/actors.md](reference/actors.md) for detailed input schemas and output fields.
+## Actor Reference Documentation
+
+Detailed input schemas and output fields for each actor:
+
+- [Google Maps Scraper](reference/actors/compass-crawler-google-places.md) - `compass/crawler-google-places`
+- [Contact Details Scraper](reference/actors/vdrmota-contact-info-scraper.md) - `vdrmota/contact-info-scraper`
+- [Instagram Profile Scraper](reference/actors/apify-instagram-profile-scraper.md) - `apify/instagram-profile-scraper`
+- [TikTok Profile Scraper](reference/actors/clockworks-tiktok-profile-scraper.md) - `clockworks/tiktok-profile-scraper`
+- [Facebook Pages Scraper](reference/actors/apify-facebook-pages-scraper.md) - `apify/facebook-pages-scraper`
+- [Facebook Groups Scraper](reference/actors/apify-facebook-groups-scraper.md) - `apify/facebook-groups-scraper`
+- [Google Search Scraper](reference/actors/apify-google-search-scraper.md) - `apify/google-search-scraper`
+- [YouTube Scraper](reference/actors/streamers-youtube-scraper.md) - `streamers/youtube-scraper`
+- [Google Maps Email Extractor](reference/actors/poidata-google-maps-email-extractor.md) - `poidata/google-maps-email-extractor`
 
 ### Step 2: Ask User Preferences
 
@@ -78,7 +89,7 @@ After completion, report:
 ```bash
 uv run --with python-dotenv --with requests \
   ${CLAUDE_PLUGIN_ROOT}/skills/generating-leads/reference/scripts/run_actor.py \
-  --actor "compass~crawler-google-places" \
+  --actor "compass/crawler-google-places" \
   --input '{"searchStringsArray": ["coffee shops"], "locationQuery": "Seattle, USA", "maxCrawledPlacesPerSearch": 50}' \
   --output coffee-shops-seattle.csv \
   --format csv
@@ -88,7 +99,7 @@ uv run --with python-dotenv --with requests \
 ```bash
 uv run --with python-dotenv --with requests \
   ${CLAUDE_PLUGIN_ROOT}/skills/generating-leads/reference/scripts/run_actor.py \
-  --actor "vdrmota~contact-info-scraper" \
+  --actor "vdrmota/contact-info-scraper" \
   --input '{"startUrls": [{"url": "https://example.com"}], "maxRequestsPerStartUrl": 20}' \
   --output contacts.json \
   --format json
@@ -100,12 +111,7 @@ See [reference/workflows.md](reference/workflows.md) for detailed step-by-step g
 
 | Error | Solution |
 |-------|----------|
-| `APIFY_TOKEN not found` | Create `.env` with `APIFY_TOKEN=your_token` |
-| `Actor not found` | Check actor ID spelling (use `~` not `/`) |
-| `Run FAILED` | Check Apify console link in error output |
+| `APIFY_TOKEN not found` | Ask user to create `.env` with `APIFY_TOKEN=your_token` |
+| `Actor not found` | Check actor ID spelling |
+| `Run FAILED` | Ask user to check Apify console link in error output |
 | `Timeout` | Reduce input size or increase `--timeout` |
-
-If errors occur:
-1. Verify `.env` exists with valid token
-2. Check Apify console link for details
-3. Adjust input parameters if needed

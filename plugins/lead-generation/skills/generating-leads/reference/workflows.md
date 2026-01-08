@@ -210,6 +210,61 @@ Task Progress:
 
 ---
 
+## Workflow 7: YouTube Creator Lead Generation
+
+Find YouTube creators making content about a specific topic.
+
+### Checklist
+
+```
+Task Progress:
+- [ ] Get topic/keyword from user
+- [ ] Ask how many videos to search (default: 50)
+- [ ] Run YouTube Scraper to find videos
+- [ ] Extract unique channel names from results
+- [ ] Run YouTube Scraper again for channel details
+- [ ] Report creator stats and contact info
+```
+
+### Example Interaction
+
+**User:** "Give me leads for YouTube creators about Claude Code"
+
+**Response:**
+1. Ask: "How many videos should I search? (default: 50)"
+2. Step 1 - Find videos about the topic:
+
+```bash
+uv run --with python-dotenv --with requests \
+  ${CLAUDE_PLUGIN_ROOT}/skills/generating-leads/reference/scripts/run_actor.py \
+  --actor "apify/youtube-scraper" \
+  --input '{"searchKeywords": ["Claude Code"], "maxResults": 50, "extendOutputFunction": "async ({ data, item, page, request, customData }) => { return item; }"}' \
+  --output claude-code-videos.json \
+  --format json
+```
+
+3. Extract unique channel names/URLs from results
+4. Step 2 - Get detailed channel information:
+
+```bash
+uv run --with python-dotenv --with requests \
+  ${CLAUDE_PLUGIN_ROOT}/skills/generating-leads/reference/scripts/run_actor.py \
+  --actor "apify/youtube-scraper" \
+  --input '{"startUrls": [{"url": "https://www.youtube.com/@channel1"}, {"url": "https://www.youtube.com/@channel2"}], "maxResults": 1}' \
+  --output youtube-creators.csv \
+  --format csv
+```
+
+5. Report: "Found 35 unique creators making Claude Code content. Top channels by subscribers: Channel A (50K), Channel B (25K), Channel C (12K). Key fields: channelName, subscriberCount, description, email (if available)."
+
+### Tips
+- Use specific keywords to find niche creators
+- Filter results by subscriber count for influencer tiers
+- Look for email in channel description for outreach
+- Consider engagement rate (views/subscribers) not just subscriber count
+
+---
+
 ## Common Follow-up Actions
 
 After generating leads, suggest:

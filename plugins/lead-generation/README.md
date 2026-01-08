@@ -1,10 +1,10 @@
 # Lead Generation Plugin
 
-Generate B2B/B2C leads from Google Maps, social media, and websites using Apify scrapers.
+Generate B2B/B2C leads from Google Maps, social media, and websites using Apify Actors.
 
 ## What This Plugin Does
 
-This plugin helps you build targeted lead lists by scraping public business data from multiple platforms. Ask Claude to find leads and it will automatically select the right scraper, run it, and deliver results in CSV or JSON.
+This plugin helps you build targeted lead lists by scraping public business data from multiple platforms. Ask Claude Code to find leads and it will automatically select the right scraper, run it, and deliver results in CSV or JSON.
 
 ## Real-World Examples
 
@@ -99,21 +99,3 @@ Claude will:
 | LinkedIn | B2B prospecting |
 | YouTube | Creator partnerships |
 | Google Search | Broad lead discovery |
-
-## Prerequisites
-
-- Apify API token in `.env` file
-- Python 3.9+ with `uv` package manager
-
-## Pricing
-
-Apify scrapers use pay-per-result pricing:
-- Google Maps: ~$4 per 1,000 places
-- Contact Details: ~$2 per 1,000 pages
-- Instagram Profiles: ~$2.60 per 1,000 profiles
-
-See [Apify pricing](https://apify.com/pricing) for current rates.
-
-## License
-
-Apache-2.0

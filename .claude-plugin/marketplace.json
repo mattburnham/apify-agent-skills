@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Official Apify plugin marketplace for Claude Code - web scraping, data extraction, and automation",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "pluginRoot": "./plugins"
   },
   "plugins": [
@@ -14,7 +14,7 @@
       "name": "lead-generation",
       "source": "./plugins/lead-generation",
       "description": "Generate and enrich B2B/B2C leads using Apify scrapers across Google Maps, social media, and websites",
-      "version": "1.0.0",
+      "version": "2.0.3",
       "keywords": ["leads", "sales", "prospecting", "b2b", "scraping"],
       "category": "data-extraction"
     }

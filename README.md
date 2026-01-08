@@ -1,16 +1,16 @@
-# Apify Claude Code Plugin Marketplace
+# Apify Claude Code plugin marketplace
 
 Official Apify plugin marketplace for Claude Code - enabling web scraping, data extraction, and automation directly from Claude's CLI.
 
 ## Installation
 
-### Add the Marketplace
+### Add the marketplace
 
 ```bash
 /plugin marketplace add apify/claude-code-marketplace
 ```
 
-### Install a Plugin
+### Install a plugin
 
 ```bash
 /plugin install lead-generation@apify-marketplace
@@ -25,20 +25,11 @@ Official Apify plugin marketplace for Claude Code - enabling web scraping, data 
    APIFY_TOKEN=your_token_here
    ```
 
-## Available Plugins
+## Available plugins
 
 ### lead-generation
 
 Generate and enrich B2B/B2C leads using Apify scrapers across Google Maps, social media, and websites.
-
-#### Commands
-
-| Command | Description |
-|---------|-------------|
-| `/lead-generation:find-businesses` | Find local businesses via Google Maps |
-| `/lead-generation:enrich-contacts` | Extract emails, phones, socials from URLs |
-| `/lead-generation:scrape-profiles` | Scrape Instagram/TikTok/Facebook profiles |
-| `/lead-generation:prospect-groups` | Find leads in Facebook groups |
 
 #### Skills
 
@@ -49,16 +40,6 @@ The `lead-finder` skill allows Claude to automatically invoke lead generation wh
 - "Get contact info from these websites"
 - "Build a lead list for fitness influencers"
 
-## Testing Locally
-
-```bash
-claude --plugin-dir ./plugins/lead-generation
-```
-
-Then try:
-```bash
-/lead-generation:find-businesses
-```
 
 ## Supported Apify Actors
 
@@ -71,7 +52,7 @@ Then try:
 | Facebook Pages Scraper | Business page data |
 | Facebook Groups Scraper | Community prospecting |
 
-## Output Format
+## Output format
 
 All commands export data to CSV format for easy import into CRMs, spreadsheets, or other tools.
 
@@ -79,15 +60,15 @@ All commands export data to CSV format for easy import into CRMs, spreadsheets, 
 
 Apify actors use pay-per-result pricing. Check individual actor pricing on [apify.com](https://apify.com).
 
-## Future Plugins
+## Future plugins
 
-### Outcome-Based
+### Outcome-based
 - `brand-monitoring` - Review tracking, sentiment analysis
 - `competitor-intelligence` - Benchmarking, feature comparison
 - `influencer-discovery` - Find and vet influencers
 - `trend-analysis` - Hashtag tracking, viral content
 
-### Platform-Based
+### Platform-based
 - `google-intelligence` - Maps, Search, Trends, Booking
 - `instagram-intelligence` - Profiles, Posts, Reels, Hashtags
 - `facebook-intelligence` - Pages, Posts, Groups, Ads
@@ -101,12 +82,8 @@ Apify actors use pay-per-result pricing. Check individual actor pricing on [apif
 3. Add entry to `.claude-plugin/marketplace.json`
 4. Submit a pull request
 
-## License
-
-Apache-2.0
 
 ## Support
 
 - [Apify Documentation](https://docs.apify.com)
 - [Apify Discord](https://discord.gg/jyEM2PRvMU)
-- [GitHub Issues](https://github.com/apify/claude-code-marketplace/issues)
