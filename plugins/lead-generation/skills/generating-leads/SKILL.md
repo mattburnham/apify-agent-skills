@@ -85,7 +85,7 @@ After completion, report:
 ```bash
 uv run --with python-dotenv --with requests \
   ${CLAUDE_PLUGIN_ROOT}/skills/generating-leads/reference/scripts/run_actor.py \
-  --actor "compass/crawler-google-places" \
+  --actor "compass~crawler-google-places" \
   --input '{"searchStringsArray": ["coffee shops"], "locationQuery": "Seattle, USA", "maxCrawledPlacesPerSearch": 50}' \
   --output coffee-shops-seattle.csv \
   --format csv
@@ -95,7 +95,7 @@ uv run --with python-dotenv --with requests \
 ```bash
 uv run --with python-dotenv --with requests \
   ${CLAUDE_PLUGIN_ROOT}/skills/generating-leads/reference/scripts/run_actor.py \
-  --actor "vdrmota/contact-info-scraper" \
+  --actor "vdrmota~contact-info-scraper" \
   --input '{"startUrls": [{"url": "https://example.com"}], "maxRequestsPerStartUrl": 20}' \
   --output contacts.json \
   --format json

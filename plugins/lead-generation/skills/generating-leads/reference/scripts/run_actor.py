@@ -113,6 +113,8 @@ Examples:
 
 def start_actor(token: str, actor_id: str, input_json: str) -> tuple[str, str]:
     """Start an actor run and return (run_id, dataset_id)."""
+    # Convert "author/actor" format to "author~actor" for API compatibility
+    actor_id = actor_id.replace("/", "~")
     url = f"https://api.apify.com/v2/acts/{actor_id}/runs"
     headers = {"Content-Type": "application/json"}
     params = {"token": token}
