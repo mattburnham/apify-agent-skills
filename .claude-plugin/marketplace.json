@@ -50,6 +50,20 @@
       ],
       "category": "development",
       "version": "1.0.0"
+    },
+    {
+      "name": "apify-actor-commands",
+      "description": "Commands for Apify Actor development workflow",
+      "version": "1.0.0",
+      "author": {
+        "name": "Apify",
+        "email": "support@apify.com"
+      },
+      "source": "./",
+      "category": "development",
+      "commands": [
+        "./commands/create-actor.md"
+      ]
     }
   ]
 }
