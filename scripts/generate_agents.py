@@ -190,8 +190,11 @@ def validate_marketplace(skills: list[dict[str, str]]) -> list[str]:
                 f"SKILL.md='{skill['name']}', marketplace.json='{plugin_by_source[expected_source]['name']}'"
             )
 
-    # Check: every marketplace plugin has a corresponding skill
+    # Check: every marketplace plugin with skills has a corresponding skill
     for plugin in plugins:
+        # Skip plugins that don't have skills (e.g., commands-only plugins)
+        if "skills" not in plugin:
+            continue
         if plugin["source"] not in skill_by_source:
             errors.append(
                 f"Marketplace plugin '{plugin['name']}' at '{plugin['source']}' has no SKILL.md"
