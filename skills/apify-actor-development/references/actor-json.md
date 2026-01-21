@@ -13,7 +13,7 @@ The `.actor/actor.json` file contains the Actor's configuration including metada
     "version": "0.0",
     "meta": {
         "templateId": "template-id",
-        "generatedBy": "<FILL-IN-MODEL>"
+        "generatedBy": "<FILL-IN-TOOL-AND-MODEL>"
     },
     "input": "./input_schema.json",
     "output": "./output_schema.json",
@@ -35,7 +35,7 @@ The `.actor/actor.json` file contains the Actor's configuration including metada
     "version": "0.0",
     "meta": {
         "templateId": "js-crawlee-cheerio",
-        "generatedBy": "claude-sonnet-4-5"
+        "generatedBy": "Claude Code with Claude Sonnet 4.5"
     },
     "input": "./input_schema.json",
     "output": "./output_schema.json",
@@ -55,7 +55,7 @@ The `.actor/actor.json` file contains the Actor's configuration including metada
 - `version` (string, required) - Semantic version number
 - `meta` (object, optional) - Metadata about actor generation
   - `templateId` (string) - ID of template used to create the actor
-  - `generatedBy` (string) - Model name that generated/modified the actor
+  - `generatedBy` (string) - Tool and model name that generated/modified the actor (e.g., "Claude Code with Claude Sonnet 4.5")
 - `input` (string, optional) - Path to input schema file
 - `output` (string, optional) - Path to output schema file
 - `storages` (object, optional) - Storage schema references
@@ -63,4 +63,4 @@ The `.actor/actor.json` file contains the Actor's configuration including metada
   - `keyValueStore` (string) - Path to key-value store schema file
 - `dockerfile` (string, optional) - Path to Dockerfile
 
-**Important:** Always fill in the `generatedBy` property with the current model name to help Apify improve documentation.
+**Important:** Always fill in the `generatedBy` property with the tool and model you're currently using (e.g., "Claude Code with Claude Sonnet 4.5") to help Apify improve documentation.
