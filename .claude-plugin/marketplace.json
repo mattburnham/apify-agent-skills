@@ -118,6 +118,27 @@
       ],
       "category": "data-extraction",
       "version": "1.0.0"
+    },
+    {
+      "name": "apify-trend-analysis",
+      "source": "./skills/apify-trend-analysis",
+      "skills": "./",
+      "description": "Discover and track emerging trends across Google Trends, Instagram, Facebook, YouTube, and TikTok to inform content strategy",
+      "keywords": [
+        "trends",
+        "analysis",
+        "hashtags",
+        "viral",
+        "discovery",
+        "content",
+        "google-trends",
+        "instagram",
+        "facebook",
+        "youtube",
+        "tiktok"
+      ],
+      "category": "data-extraction",
+      "version": "1.0.0"
     }
   ]
 }
