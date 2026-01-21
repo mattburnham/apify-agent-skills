@@ -139,6 +139,46 @@
       ],
       "category": "data-extraction",
       "version": "1.0.0"
+    },
+    {
+      "name": "apify-content-analytics",
+      "source": "./skills/apify-content-analytics",
+      "skills": "./",
+      "description": "Track engagement metrics, measure campaign ROI, and analyze content performance across Instagram, Facebook, YouTube, and TikTok",
+      "keywords": [
+        "analytics",
+        "engagement",
+        "performance",
+        "metrics",
+        "ROI",
+        "content",
+        "instagram",
+        "facebook",
+        "youtube",
+        "tiktok"
+      ],
+      "category": "data-extraction",
+      "version": "1.0.0"
+    },
+    {
+      "name": "apify-audience-analysis",
+      "source": "./skills/apify-audience-analysis",
+      "skills": "./",
+      "description": "Understand audience demographics, preferences, behavior patterns, and engagement quality across Facebook, Instagram, YouTube, and TikTok",
+      "keywords": [
+        "audience",
+        "demographics",
+        "behavior",
+        "engagement",
+        "analysis",
+        "followers",
+        "facebook",
+        "instagram",
+        "youtube",
+        "tiktok"
+      ],
+      "category": "data-extraction",
+      "version": "1.0.0"
     }
   ]
 }
