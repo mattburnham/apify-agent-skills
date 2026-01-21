@@ -27,7 +27,7 @@ from dotenv import load_dotenv, find_dotenv
 import requests
 
 # User-Agent for tracking skill usage in Apify analytics
-USER_AGENT = "apify-agent-skills/apify-brand-reputation-monitoring-1.0.0"
+USER_AGENT = "apify-agent-skills/apify-brand-reputation-monitoring-1.0.1"
 
 # Essential fields per actor for basic output mode
 ESSENTIAL_FIELDS = {

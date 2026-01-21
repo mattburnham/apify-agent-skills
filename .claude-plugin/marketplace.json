@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Official Apify agent skills for web scraping, data extraction, and automation",
-    "version": "1.2.0"
+    "version": "1.2.1"
   },
   "plugins": [
     {
@@ -53,7 +53,7 @@
         "tiktok"
       ],
       "category": "data-extraction",
-      "version": "1.0.0"
+      "version": "1.0.1"
     },
     {
       "name": "apify-competitor-intelligence",
@@ -75,7 +75,7 @@
         "tiktok"
       ],
       "category": "data-extraction",
-      "version": "1.1.0"
+      "version": "1.1.1"
     },
     {
       "name": "apify-market-research",
@@ -97,7 +97,7 @@
         "tripadvisor"
       ],
       "category": "data-extraction",
-      "version": "1.0.0"
+      "version": "1.0.1"
     },
     {
       "name": "apify-influencer-discovery",

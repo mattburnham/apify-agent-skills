@@ -27,7 +27,7 @@ from dotenv import load_dotenv, find_dotenv
 import requests
 
 # User-Agent for tracking skill usage in Apify analytics
-USER_AGENT = "apify-agent-skills/apify-competitor-intelligence-1.1.0"
+USER_AGENT = "apify-agent-skills/apify-competitor-intelligence-1.1.1"
 
 # Essential fields per actor for basic output mode
 ESSENTIAL_FIELDS = {
