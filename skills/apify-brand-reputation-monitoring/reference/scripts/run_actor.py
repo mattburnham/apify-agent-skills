@@ -35,27 +35,27 @@ ESSENTIAL_FIELDS = {
     "compass~crawler-google-places": ["title", "url", "address", "phone", "website", "totalScore", "reviewsCount", "categoryName"],
     "compass~Google-Maps-Reviews-Scraper": ["name", "title", "text", "stars", "publishedAtDate", "reviewUrl", "reviewerId", "reviewerUrl"],
     # Booking.com
-    "voyager~booking-scraper": ["name", "url", "address", "rating", "reviewScore", "reviewCount", "price", "coordinates"],
-    "voyager~booking-reviews-scraper": ["hotelName", "title", "text", "rating", "date", "travelerType", "roomType", "countryName"],
+    "voyager~booking-scraper": ["name", "url", "address", "rating", "reviewScore", "reviewCount", "price", "latitude", "longitude"],
+    "voyager~booking-reviews-scraper": ["hotelId", "reviewTitle", "rating", "reviewDate", "roomInfo", "stayDate", "userName", "userLocation"],
     # TripAdvisor
-    "maxcopell~tripadvisor-reviews": ["title", "text", "rating", "publishedDate", "tripType", "username", "url"],
+    "maxcopell~tripadvisor-reviews": ["title", "text", "rating", "publishedDate", "travelDate", "url"],
     # Facebook
-    "apify~facebook-reviews-scraper": ["reviewText", "rating", "reviewDate", "reviewerName", "reviewerUrl", "pageUrl"],
-    "apify~facebook-comments-scraper": ["text", "date", "profileName", "profileUrl", "likesCount", "postUrl"],
+    "apify~facebook-reviews-scraper": ["text", "isRecommended", "date", "url", "likesCount", "pageName"],
+    "apify~facebook-comments-scraper": ["text", "date", "profileName", "profileUrl", "likesCount", "facebookUrl"],
     "apify~facebook-pages-scraper": ["title", "pageUrl", "email", "phone", "website", "address", "likes", "followers"],
-    "apify~facebook-likes-scraper": ["reactionType", "userName", "userUrl", "postUrl", "timestamp"],
+    "apify~facebook-likes-scraper": ["reactionType", "name", "profileUrl", "postUrl", "timestamp"],
     # Instagram
-    "apify~instagram-comment-scraper": ["text", "timestamp", "ownerUsername", "ownerProfilePicUrl", "likesCount", "postUrl"],
+    "apify~instagram-comment-scraper": ["text", "timestamp", "ownerUsername", "ownerProfilePicUrl", "ownerId", "postId"],
     "apify~instagram-hashtag-scraper": ["url", "caption", "ownerUsername", "likesCount", "commentsCount", "timestamp", "hashtags"],
     "apify~instagram-search-scraper": ["username", "url", "fullName", "followersCount", "biography", "externalUrl", "verified", "name", "inputUrl", "category", "phone", "location_address", "location_city", "media_count"],
     "apify~instagram-tagged-scraper": ["url", "caption", "timestamp", "commentsCount", "hashtags"],
-    "apify~export-instagram-comments-posts": ["text", "timestamp", "ownerUsername", "likesCount", "postUrl", "postCaption"],
+    "apify~export-instagram-comments-posts": ["commentText", "commentatorUserName", "commentatorProfilePicUrl"],
     "apify~instagram-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "timestamp"],
     "apify~instagram-api-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "timestamp", "locationName"],
     # YouTube
-    "streamers~youtube-comments-scraper": ["text", "author", "authorUrl", "likesCount", "publishedAt", "videoUrl", "videoTitle"],
+    "streamers~youtube-comments-scraper": ["comment", "author", "voteCount", "replyCount", "pageUrl", "title", "videoId"],
     # TikTok
-    "clockworks~tiktok-comments-scraper": ["text", "createTime", "uniqueId", "nickname", "diggCount", "videoUrl"],
+    "clockworks~tiktok-comments-scraper": ["text", "createTimeISO", "uniqueId", "diggCount", "videoWebUrl", "cid"],
 }
 
 

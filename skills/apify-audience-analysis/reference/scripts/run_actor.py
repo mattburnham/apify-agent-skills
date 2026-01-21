@@ -33,26 +33,26 @@ USER_AGENT = "apify-agent-skills/apify-audience-analysis-1.0.0"
 ESSENTIAL_FIELDS = {
     # Facebook
     "apify~facebook-followers-following-scraper": ["title", "url", "type", "subtitle", "image"],
-    "apify~facebook-likes-scraper": ["url", "reactorName", "reactorUrl", "reactionType", "timestamp"],
-    "apify~facebook-reels-scraper": ["url", "text", "likesCount", "commentsCount", "sharesCount", "viewsCount", "duration"],
-    "apify~facebook-comments-scraper": ["url", "text", "date", "likesCount", "profileName", "profileUrl"],
-    "apify~facebook-posts-scraper": ["url", "text", "time", "likesCount", "commentsCount", "sharesCount", "pageName"],
+    "apify~facebook-likes-scraper": ["name", "profileUrl", "reactionType", "postUrl", "timestamp"],
+    "apify~facebook-reels-scraper": ["url", "text", "likesCount", "commentsCount", "sharesCount", "playCount", "duration"],
+    "apify~facebook-comments-scraper": ["facebookUrl", "text", "date", "likesCount", "profileName", "profileUrl"],
+    "apify~facebook-posts-scraper": ["url", "text", "time", "likes", "comments", "shares", "pageName"],
     # Instagram
-    "apify~instagram-profile-scraper": ["username", "fullName", "followersCount", "followingCount", "postsCount", "biography", "externalUrl", "verified"],
-    "apify~instagram-search-scraper": ["url", "ownerUsername", "locationName", "likesCount", "commentsCount", "timestamp"],
-    "apify~instagram-tagged-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "timestamp"],
-    "apify~instagram-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "timestamp", "followersCount"],
-    "apify~instagram-api-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "timestamp", "videoViewCount"],
-    "apify~instagram-followers-count-scraper": ["username", "followersCount", "followingCount", "postsCount", "timestamp"],
-    "apify~export-instagram-comments-posts": ["text", "ownerUsername", "timestamp", "likesCount", "postUrl"],
-    "apify~instagram-comment-scraper": ["text", "ownerUsername", "timestamp", "likesCount", "ownerProfilePicUrl"],
+    "apify~instagram-profile-scraper": ["username", "fullName", "followersCount", "followsCount", "postsCount", "biography", "externalUrl", "verified"],
+    "apify~instagram-search-scraper": ["username", "url", "fullName", "followersCount", "biography", "externalUrl", "verified"],
+    "apify~instagram-tagged-scraper": ["url", "caption", "timestamp", "commentsCount", "hashtags"],
+    "apify~instagram-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "timestamp"],
+    "apify~instagram-api-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "timestamp", "locationName"],
+    "apify~instagram-followers-count-scraper": ["username", "followersCount", "followsCount"],
+    "apify~export-instagram-comments-posts": ["commentText", "commentatorUserName", "commentatorProfilePicUrl"],
+    "apify~instagram-comment-scraper": ["text", "ownerUsername", "timestamp", "ownerProfilePicUrl", "postId"],
     # YouTube
-    "streamers~youtube-comments-scraper": ["text", "author", "authorUrl", "likes", "publishedAt", "videoUrl"],
+    "streamers~youtube-comments-scraper": ["comment", "author", "voteCount", "replyCount", "pageUrl", "title", "videoId"],
     "streamers~youtube-channel-scraper": ["channelName", "channelUrl", "numberOfSubscribers", "channelTotalViews", "channelTotalVideos", "channelDescription", "channelLocation"],
     # TikTok
-    "clockworks~tiktok-followers-scraper": ["uniqueId", "nickname", "followerCount", "followingCount", "videoCount", "heartCount", "signature"],
+    "clockworks~tiktok-followers-scraper": ["authorMeta.name", "authorMeta.nickName", "authorMeta.fans", "authorMeta.following", "authorMeta.video", "authorMeta.heart", "authorMeta.signature", "connectionType"],
     "clockworks~tiktok-profile-scraper": ["webVideoUrl", "authorMeta.name", "authorMeta.nickName", "authorMeta.fans", "authorMeta.following", "playCount", "diggCount", "commentCount"],
-    "clockworks~tiktok-comments-scraper": ["text", "uniqueId", "nickname", "createTime", "diggCount", "replyCommentTotal"],
+    "clockworks~tiktok-comments-scraper": ["text", "uniqueId", "createTimeISO", "diggCount", "replyCommentTotal", "videoWebUrl"],
 }
 
 

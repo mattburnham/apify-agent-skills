@@ -33,23 +33,23 @@ USER_AGENT = "apify-agent-skills/apify-content-analytics-1.0.0"
 ESSENTIAL_FIELDS = {
     # Instagram
     "apify~instagram-post-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "timestamp", "videoViewCount"],
-    "apify~instagram-reel-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "videoPlayCount", "timestamp"],
-    "apify~instagram-followers-count-scraper": ["username", "followersCount", "followingCount", "postsCount", "timestamp"],
-    "apify~instagram-comment-scraper": ["text", "ownerUsername", "timestamp", "likesCount", "ownerProfilePicUrl"],
+    "apify~instagram-reel-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "videoViewCount", "timestamp"],
+    "apify~instagram-followers-count-scraper": ["username", "followersCount", "followsCount"],
+    "apify~instagram-comment-scraper": ["text", "ownerUsername", "timestamp", "ownerProfilePicUrl"],
     "apify~instagram-hashtag-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "hashtags", "timestamp"],
-    "apify~instagram-tagged-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "timestamp"],
+    "apify~instagram-tagged-scraper": ["url", "caption", "timestamp", "commentsCount", "hashtags"],
     "apify~instagram-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "timestamp"],
-    "apify~instagram-api-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "timestamp", "videoViewCount"],
+    "apify~instagram-api-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "timestamp"],
     # Facebook
-    "apify~facebook-posts-scraper": ["url", "text", "time", "likesCount", "commentsCount", "sharesCount", "pageName"],
-    "apify~facebook-likes-scraper": ["url", "reactorName", "reactorUrl", "reactionType", "timestamp"],
-    "apify~facebook-reels-scraper": ["url", "text", "likesCount", "commentsCount", "sharesCount", "viewsCount", "duration"],
-    "apify~facebook-ads-scraper": ["adId", "pageId", "pageName", "adCreativeBody", "adCreativeLinkTitle", "startDate", "impressions", "spend"],
-    "apify~facebook-comments-scraper": ["url", "text", "date", "likesCount", "profileName", "profileUrl"],
+    "apify~facebook-posts-scraper": ["url", "text", "time", "likes", "comments", "shares", "pageName"],
+    "apify~facebook-likes-scraper": ["postUrl", "name", "profileUrl", "reactionType", "timestamp"],
+    "apify~facebook-reels-scraper": ["url", "text", "likesCount", "commentsCount", "sharesCount", "playCount", "duration"],
+    "apify~facebook-ads-scraper": ["pageName", "snapshot.body.text", "snapshot.displayFormat", "isActive", "startDateFormatted", "snapshot.ctaText", "snapshot.linkUrl", "spend"],
+    "apify~facebook-comments-scraper": ["commentUrl", "text", "date", "likesCount", "profileName", "profileUrl"],
     "apify~facebook-pages-scraper": ["title", "pageUrl", "email", "phone", "website", "address", "likes", "followers"],
     # YouTube
     "streamers~youtube-scraper": ["title", "url", "channelName", "channelUrl", "viewCount", "likes", "numberOfSubscribers"],
-    "streamers~youtube-shorts-scraper": ["title", "url", "channelName", "viewCount", "likes", "commentsCount", "uploadDate"],
+    "streamers~youtube-shorts-scraper": ["title", "url", "channelName", "viewCount", "likes", "commentsCount", "date"],
     # TikTok
     "clockworks~tiktok-scraper": ["webVideoUrl", "authorMeta.name", "authorMeta.nickName", "text", "playCount", "diggCount", "commentCount", "authorMeta.fans"],
 }

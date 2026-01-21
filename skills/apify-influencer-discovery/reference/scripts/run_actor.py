@@ -34,22 +34,22 @@ ESSENTIAL_FIELDS = {
     # Instagram
     "apify~instagram-profile-scraper": ["username", "url", "fullName", "followersCount", "postsCount", "biography", "externalUrl", "verified"],
     "apify~instagram-hashtag-scraper": ["url", "caption", "ownerUsername", "likesCount", "commentsCount", "timestamp", "hashtags"],
-    "apify~instagram-reel-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "videoPlayCount", "timestamp"],
+    "apify~instagram-reel-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "videoViewCount", "timestamp"],
     "apify~instagram-search-scraper": ["username", "url", "fullName", "followersCount", "biography", "externalUrl", "verified", "name", "inputUrl", "category", "phone", "location_address", "location_city", "media_count"],
     "apify~instagram-tagged-scraper": ["url", "caption", "timestamp", "commentsCount", "hashtags"],
     "apify~instagram-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "timestamp"],
     "apify~instagram-api-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "timestamp", "videoViewCount"],
-    "apify~export-instagram-comments-posts": ["text", "timestamp", "ownerUsername", "likesCount", "postUrl", "postCaption"],
+    "apify~export-instagram-comments-posts": ["commentText", "commentatorUserName", "postInfo.url", "postInfo.caption", "postInfo.likesCount", "postInfo.timestamp"],
     # Facebook
-    "apify~facebook-posts-scraper": ["url", "text", "time", "likesCount", "commentsCount", "sharesCount", "pageName"],
+    "apify~facebook-posts-scraper": ["url", "text", "time", "likes", "comments", "shares", "pageName"],
     "apify~facebook-groups-scraper": ["url", "user.name", "text", "time", "likesCount", "commentsCount", "groupTitle"],
-    "apify~facebook-search-scraper": ["url", "name", "type", "category", "likes", "followers", "location"],
+    "apify~facebook-search-scraper": ["title", "pageUrl", "email", "phone", "website", "address", "likes", "followers"],
     # YouTube
-    "streamers~youtube-channel-scraper": ["channelName", "channelUrl", "subscriberCount", "videoCount", "viewCount", "description", "joinedDate"],
+    "streamers~youtube-channel-scraper": ["channelName", "channelUrl", "aboutChannelInfo.numberOfSubscribers", "aboutChannelInfo.channelTotalVideos", "aboutChannelInfo.channelTotalViews", "aboutChannelInfo.channelDescription", "aboutChannelInfo.channelJoinedDate"],
     # TikTok
     "clockworks~tiktok-scraper": ["webVideoUrl", "authorMeta.name", "authorMeta.nickName", "text", "playCount", "diggCount", "commentCount", "authorMeta.fans"],
     "clockworks~free-tiktok-scraper": ["webVideoUrl", "authorMeta.name", "authorMeta.nickName", "text", "playCount", "diggCount", "authorMeta.fans"],
-    "clockworks~tiktok-live-scraper": ["liveUrl", "hostName", "hostNickname", "viewerCount", "likeCount", "title", "startTime"],
+    "clockworks~tiktok-live-scraper": ["owner.profileUrl", "owner.nickname", "owner.followers", "viewers", "guests", "hashtag", "timestamp"],
 }
 
 

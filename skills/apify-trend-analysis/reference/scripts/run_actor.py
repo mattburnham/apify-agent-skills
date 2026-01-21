@@ -32,29 +32,29 @@ USER_AGENT = "apify-agent-skills/apify-trend-analysis-1.0.0"
 # Essential fields per actor for basic output mode
 ESSENTIAL_FIELDS = {
     # Google Trends
-    "apify~google-trends-scraper": ["keyword", "date", "value", "geo", "formattedValue"],
+    "apify~google-trends-scraper": ["searchTerm", "inputUrlOrTerm", "interestOverTime_timelineData", "interestOverTime_averages"],
     # Instagram
     "apify~instagram-hashtag-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "timestamp", "hashtags"],
-    "apify~instagram-hashtag-stats": ["hashtag", "postsCount", "topPosts", "recentPosts"],
+    "apify~instagram-hashtag-stats": ["hashtag", "totalPostCount", "postsPerDay", "topPosts", "latestPosts"],
     "apify~instagram-post-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "timestamp", "type"],
-    "apify~instagram-search-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "timestamp"],
+    "apify~instagram-search-scraper": ["username", "url", "fullName", "followersCount", "biography", "verified", "postsCount"],
     "apify~instagram-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "timestamp"],
     "apify~instagram-api-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "timestamp", "videoViewCount"],
-    "apify~export-instagram-comments-posts": ["postUrl", "commentText", "ownerUsername", "likesCount", "timestamp"],
+    "apify~export-instagram-comments-posts": ["commentText", "commentatorUserName", "commentatorProfilePicUrl", "postInfo.url", "postInfo.caption", "postInfo.likesCount"],
     # Facebook
-    "apify~facebook-marketplace-scraper": ["title", "url", "price", "location", "description", "sellerName", "condition", "listedDate"],
-    "apify~facebook-photos-scraper": ["url", "imageUrl", "caption", "likesCount", "commentsCount", "uploadedAt", "pageName"],
-    "apify~facebook-groups-scraper": ["name", "url", "membersCount", "privacyType", "description", "createdAt"],
+    "apify~facebook-marketplace-scraper": ["marketplace_listing_title", "listingUrl", "listing_price.formatted_amount", "location.reverse_geocode.city", "marketplace_listing_seller.name", "is_sold", "is_pending"],
+    "apify~facebook-photos-scraper": ["id", "image", "url", "ocrText", "facebookUrl", "dataType"],
+    "apify~facebook-groups-scraper": ["url", "user.name", "text", "time", "likesCount", "commentsCount", "groupTitle"],
     # YouTube
-    "streamers~youtube-shorts-scraper": ["title", "url", "viewCount", "likeCount", "commentCount", "channelName", "publishedAt", "duration"],
-    "streamers~youtube-video-scraper-by-hashtag": ["title", "url", "viewCount", "likeCount", "commentCount", "channelName", "publishedAt", "hashtag"],
+    "streamers~youtube-shorts-scraper": ["title", "url", "viewCount", "likes", "commentsCount", "channelName", "date", "duration"],
+    "streamers~youtube-video-scraper-by-hashtag": ["title", "url", "viewCount", "thumbnailUrl", "id", "type"],
     # TikTok
     "clockworks~tiktok-hashtag-scraper": ["webVideoUrl", "authorMeta.name", "text", "playCount", "diggCount", "commentCount", "shareCount", "createTime"],
     "clockworks~tiktok-sound-scraper": ["webVideoUrl", "authorMeta.name", "text", "playCount", "diggCount", "commentCount", "shareCount", "musicMeta.musicName"],
-    "clockworks~tiktok-ads-scraper": ["adTitle", "adUrl", "advertiserName", "playCount", "likeCount", "commentCount", "shareCount", "createTime"],
+    "clockworks~tiktok-ads-scraper": ["hashtagName", "hashtagId", "videoUrl", "publishCnt", "videoViews", "countryCode", "industryInfo.value"],
     "clockworks~tiktok-discover-scraper": ["webVideoUrl", "authorMeta.name", "text", "playCount", "diggCount", "commentCount", "shareCount", "hashtags"],
-    "clockworks~tiktok-explore-scraper": ["webVideoUrl", "authorMeta.name", "text", "playCount", "diggCount", "commentCount", "shareCount", "createTime"],
-    "clockworks~tiktok-trends-scraper": ["webVideoUrl", "authorMeta.name", "text", "playCount", "diggCount", "commentCount", "shareCount", "createTime", "hashtags"],
+    "clockworks~tiktok-explore-scraper": ["url", "name", "text", "plays", "diggs", "comments", "shares", "duration"],
+    "clockworks~tiktok-trends-scraper": ["id", "name", "url", "rank", "videoCount", "viewCount", "countryCode", "industryName"],
 }
 
 

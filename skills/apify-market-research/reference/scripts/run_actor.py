@@ -34,25 +34,25 @@ ESSENTIAL_FIELDS = {
     # Google Maps
     "compass~crawler-google-places": ["title", "url", "address", "phone", "website", "totalScore", "reviewsCount", "categoryName"],
     "compass~google-maps-extractor": ["title", "url", "address", "phone", "website", "totalScore", "reviewsCount", "categoryName", "openingHours"],
-    # Google Trends
-    "apify~google-trends-scraper": ["keyword", "date", "value", "geo", "formattedValue"],
+    # Google Trends (output is nested in interestOverTime_timelineData with time, value, formattedValue)
+    "apify~google-trends-scraper": ["searchTerm", "interestOverTime_timelineData", "interestOverTime_averages", "relatedQueries_top", "relatedTopics_top"],
     # Facebook
-    "apify~facebook-marketplace-scraper": ["title", "url", "price", "location", "description", "sellerName", "condition", "listedDate"],
+    "apify~facebook-marketplace-scraper": ["marketplace_listing_title", "listingUrl", "listing_price.formatted_amount", "location.reverse_geocode.city", "marketplace_listing_seller.name", "is_pending", "is_sold"],
     "apify~facebook-events-scraper": ["name", "url", "dateTimeSentence", "location.name", "location.contextualName", "usersGoing", "usersInterested", "organizedBy"],
-    "apify~facebook-groups-scraper": ["name", "url", "membersCount", "privacyType", "description", "createdAt"],
+    "apify~facebook-groups-scraper": ["url", "user.name", "text", "time", "likesCount", "commentsCount", "groupTitle"],
     "apify~facebook-pages-scraper": ["title", "pageUrl", "email", "phone", "website", "address", "likes", "followers"],
-    "apify~facebook-page-contact-information": ["name", "url", "email", "phone", "website", "address", "category"],
-    "apify~facebook-photos-scraper": ["url", "imageUrl", "caption", "likesCount", "commentsCount", "uploadedAt", "pageName"],
+    "apify~facebook-page-contact-information": ["pageName", "pageUrl", "email", "phone", "website", "address", "category"],
+    "apify~facebook-photos-scraper": ["id", "url", "image", "ocrText", "facebookUrl"],
     # Instagram
     "apify~instagram-hashtag-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "timestamp", "hashtags"],
-    "apify~instagram-hashtag-stats": ["hashtag", "postsCount", "topPosts", "recentPosts"],
-    "apify~instagram-reel-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "videoPlayCount", "timestamp"],
+    "apify~instagram-hashtag-stats": ["hashtag", "totalPostCount", "topPosts", "latestPosts"],
+    "apify~instagram-reel-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "videoViewCount", "timestamp"],
     "apify~instagram-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "timestamp"],
     "apify~instagram-api-scraper": ["url", "ownerUsername", "caption", "likesCount", "commentsCount", "timestamp", "videoViewCount"],
     # Booking.com
     "voyager~booking-scraper": ["name", "url", "address", "rating", "reviewScore", "price", "facilities", "description"],
     # TripAdvisor
-    "maxcopell~tripadvisor-reviews": ["title", "url", "text", "rating", "publishedDate", "tripType", "userName", "helpfulVotes"],
+    "maxcopell~tripadvisor-reviews": ["title", "url", "text", "rating", "publishedDate", "travelDate", "user.name", "helpfulVotes"],
 }
 
 
