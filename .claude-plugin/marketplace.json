@@ -76,6 +76,28 @@
       ],
       "category": "data-extraction",
       "version": "1.1.0"
+    },
+    {
+      "name": "apify-market-research",
+      "source": "./skills/apify-market-research",
+      "skills": "./",
+      "description": "Analyze market conditions, geographic opportunities, pricing, consumer behavior, and product validation across Google Maps, Facebook, Instagram, Booking.com, and TripAdvisor",
+      "keywords": [
+        "market",
+        "research",
+        "analysis",
+        "pricing",
+        "geographic",
+        "validation",
+        "trends",
+        "google-maps",
+        "facebook",
+        "instagram",
+        "booking",
+        "tripadvisor"
+      ],
+      "category": "data-extraction",
+      "version": "1.0.0"
     }
   ]
 }
