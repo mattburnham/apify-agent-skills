@@ -7,6 +7,7 @@ Official Apify agent skills for web scraping, data extraction, and automation. W
 <!-- BEGIN_SKILLS_TABLE -->
 | Name | Description | Documentation |
 |------|-------------|---------------|
+| `apify-brand-reputation-monitoring` | Track reviews, ratings, sentiment, and brand mentions across Google Maps, Booking.com, TripAdvisor, Facebook, Instagram, YouTube, and TikTok | [SKILL.md](skills/apify-brand-reputation-monitoring/SKILL.md) |
 | `apify-lead-generation` | Generate B2B/B2C leads by scraping Google Maps, websites, Instagram, TikTok, Facebook, LinkedIn, YouTube, and Google Search using Apify Actors | [SKILL.md](skills/apify-lead-generation/SKILL.md) |
 <!-- END_SKILLS_TABLE -->
 
@@ -85,7 +86,6 @@ uv run scripts/generate_agents.py
 ## Future Skills
 
 ### Outcome-based
-- `brand-monitoring` - Review tracking, sentiment analysis
 - `competitor-intelligence` - Benchmarking, feature comparison
 - `influencer-discovery` - Find and vet influencers
 - `trend-analysis` - Hashtag tracking, viral content

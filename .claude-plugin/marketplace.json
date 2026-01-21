@@ -31,6 +31,29 @@
       ],
       "category": "data-extraction",
       "version": "1.1.1"
+    },
+    {
+      "name": "apify-brand-reputation-monitoring",
+      "source": "./skills/apify-brand-reputation-monitoring",
+      "skills": "./",
+      "description": "Track reviews, ratings, sentiment, and brand mentions across Google Maps, Booking.com, TripAdvisor, Facebook, Instagram, YouTube, and TikTok",
+      "keywords": [
+        "reputation",
+        "reviews",
+        "sentiment",
+        "monitoring",
+        "brand",
+        "ratings",
+        "google-maps",
+        "booking",
+        "tripadvisor",
+        "facebook",
+        "instagram",
+        "youtube",
+        "tiktok"
+      ],
+      "category": "data-extraction",
+      "version": "1.0.0"
     }
   ]
 }
