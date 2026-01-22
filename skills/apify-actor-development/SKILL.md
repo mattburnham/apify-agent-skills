@@ -49,15 +49,15 @@ apify login -t $APIFY_TOKEN
 ## Template Selection
 
 **IMPORTANT:** Before starting actor development, always ask the user which programming language they prefer:
-- **JavaScript**
-- **TypeScript**
-- **Python**
+- **JavaScript** - Use `apify create <actor-name> -t project_empty`
+- **TypeScript** - Use `apify create <actor-name> -t ts_empty`
+- **Python** - Use `apify create <actor-name> -t python-empty`
 
-Templates for each language are available in the `references/` directory. Use the appropriate template based on the user's language choice. Additional packages (Crawlee, Playwright, etc.) can be installed later as needed.
+Use the appropriate CLI command based on the user's language choice. Additional packages (Crawlee, Playwright, etc.) can be installed later as needed.
 
 ## Quick Start Workflow
 
-1. **Use language template** - Copy the appropriate template from `references/` directory based on user's language preference
+1. **Create actor project** - Run the appropriate `apify create` command based on user's language preference (see Template Selection above)
 2. **Install dependencies**
    - JavaScript/TypeScript: `npm install`
    - Python: `pip install -r requirements.txt`
@@ -71,6 +71,7 @@ Templates for each language are available in the `references/` directory. Use th
 ## Best Practices
 
 **✓ Do:**
+- Use `apify run` to test actors locally (configures Apify environment and storage)
 - Use Apify SDK (`apify`) for code running ON Apify platform
 - Validate input early with proper error handling and fail gracefully
 - Use CheerioCrawler for static HTML (10x faster than browsers)
@@ -87,6 +88,7 @@ Templates for each language are available in the `references/` directory. Use th
 - Implement readiness probe handler (required if your Actor uses standby mode)
 
 **✗ Don't:**
+- Use `npm start`, `npm run start`, `npx apify run`, or similar commands to run actors (use `apify run` instead)
 - Rely on `Dataset.getInfo()` for final counts on Cloud
 - Use browser crawlers when HTTP/Cheerio works
 - Hard code values that should be in input schema or environment variables
@@ -112,6 +114,8 @@ apify login        # Authenticate account
 apify push         # Deploy to Apify platform (uses name from .actor/actor.json)
 apify help         # List all commands
 ```
+
+**IMPORTANT:** Always use `apify run` to test actors locally. Do not use `npm run start`, `npm start`, `yarn start`, or other package manager commands - these will not properly configure the Apify environment and storage.
 
 ## Local Testing
 
