@@ -87,16 +87,3 @@ Available when `scrapeSocialMediaProfiles` is enabled:
 |-------|-------------|
 | `leadsEnrichment` | Array of enriched business leads with full name, email, job title, department, seniority, LinkedIn, company information |
 
-## Essential Fields
-
-For quick answers and basic data exports, these fields are most relevant (in priority order):
-
-| Priority | Field | Description |
-|----------|-------|-------------|
-| 1 | `domain` | Website domain |
-| 2 | `emails` | Email addresses |
-| 3 | `phones` | Phone numbers |
-| 4 | `linkedIns` | LinkedIn URLs |
-| 5 | `facebooks` | Facebook URLs |
-| 6 | `instagrams` | Instagram URLs |
-| 7 | `twitters` | Twitter URLs |

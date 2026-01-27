@@ -61,9 +61,8 @@ Read the corresponding reference doc from the table above to understand:
 Before running, ask:
 1. **Output format**:
    - **Quick answer** - Display top 5 results in chat (no file saved)
-   - **CSV (all data)** - Full export with all fields
-   - **CSV (basic fields)** - Export with essential fields only
-   - **JSON (all data)** - Full export in JSON format
+   - **CSV** - Full export with all fields
+   - **JSON** - Full export in JSON format
 2. **Output filename** (if file output selected): Suggest descriptive name based on search
 
 ### Step 4: Run the Script
@@ -76,7 +75,7 @@ uv run --with python-dotenv --with requests \
   --input 'JSON_INPUT'
 ```
 
-**CSV (all data):**
+**CSV:**
 ```bash
 uv run --with python-dotenv --with requests \
   ${CLAUDE_PLUGIN_ROOT}/reference/scripts/run_actor.py \
@@ -86,18 +85,7 @@ uv run --with python-dotenv --with requests \
   --format csv
 ```
 
-**CSV (basic fields):**
-```bash
-uv run --with python-dotenv --with requests \
-  ${CLAUDE_PLUGIN_ROOT}/reference/scripts/run_actor.py \
-  --actor "ACTOR_ID" \
-  --input 'JSON_INPUT' \
-  --output OUTPUT_FILE.csv \
-  --format csv \
-  --fields basic
-```
-
-**JSON (all data):**
+**JSON:**
 ```bash
 uv run --with python-dotenv --with requests \
   ${CLAUDE_PLUGIN_ROOT}/reference/scripts/run_actor.py \
@@ -131,18 +119,7 @@ uv run --with python-dotenv --with requests \
   --input '{"searchStringsArray": ["coffee shops"], "locationQuery": "Seattle, USA", "maxCrawledPlacesPerSearch": 50}'
 ```
 
-**Google Maps - CSV with basic fields:**
-```bash
-uv run --with python-dotenv --with requests \
-  ${CLAUDE_PLUGIN_ROOT}/reference/scripts/run_actor.py \
-  --actor "compass/crawler-google-places" \
-  --input '{"searchStringsArray": ["coffee shops"], "locationQuery": "Seattle, USA", "maxCrawledPlacesPerSearch": 50}' \
-  --output coffee-shops-seattle.csv \
-  --format csv \
-  --fields basic
-```
-
-**Contact enrichment - full JSON export:**
+**Contact enrichment - JSON export:**
 ```bash
 uv run --with python-dotenv --with requests \
   ${CLAUDE_PLUGIN_ROOT}/reference/scripts/run_actor.py \
