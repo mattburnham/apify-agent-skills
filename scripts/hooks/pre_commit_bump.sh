@@ -13,10 +13,15 @@ if ! echo "$COMMAND" | grep -qE 'git\s+commit'; then
     exit 0
 fi
 
-# Extract commit message from -m "message" or -m 'message'
-COMMIT_MSG=$(echo "$COMMAND" | grep -oE '\-m\s+["'"'"'][^"'"'"']+["'"'"']' | sed -E 's/-m\s+["'"'"'](.*)["'"'"']/\1/' | head -1)
+# Extract commit message from -m "message"
+COMMIT_MSG=$(echo "$COMMAND" | sed -n 's/.*-m "\([^"]*\)".*/\1/p' | head -1)
 
-# If no message found, skip bump (might be interactive commit)
+# For heredoc, the message might be on the next line after <<'EOF' or <<EOF
+if [ -z "$COMMIT_MSG" ]; then
+    COMMIT_MSG=$(echo "$COMMAND" | grep -A1 "<<'EOF'" | tail -1 | sed 's/^[[:space:]]*//')
+fi
+
+# If still no message, skip
 if [ -z "$COMMIT_MSG" ]; then
     exit 0
 fi

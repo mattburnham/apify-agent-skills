@@ -30,7 +30,7 @@ from dotenv import load_dotenv, find_dotenv
 import requests
 
 # User-Agent for tracking skill usage in Apify analytics
-USER_AGENT = "apify-agent-skills/apify-lead-generation-1.1.2"
+USER_AGENT = "apify-agent-skills/apify-lead-generation-1.1.4"
 
 
 
