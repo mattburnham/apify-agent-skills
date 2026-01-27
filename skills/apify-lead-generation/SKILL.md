@@ -61,7 +61,6 @@ export $(grep APIFY_TOKEN .env | xargs) && mcpc --json mcp.apify.com --header "A
  ⚠️ **Important**: Do NOT truncate the mcpc response with `head`, `tail`, or line limits.
  Read the FULL response to find output field documentation - many Actors have nested output structures (e.g., `organicResults` for Google Search) documented in the README section.
 
-
 ### Step 3: Parse Input Schema and Output Fields
 
 From the mcpc response:
