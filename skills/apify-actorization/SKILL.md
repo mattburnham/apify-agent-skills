@@ -254,7 +254,7 @@ Define output structure in `.actor/output_schema.json`. Validate against the JSO
 
 **For single files or blobs:**
 - Use key-value store: `Actor.setValue()` / `Actor.set_value()`
-- Get the public URL and include it in dataset or output:
+- Get the public URL and include it in the dataset:
 
 ```javascript
 // Store file with public access
