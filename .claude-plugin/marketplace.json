@@ -5,7 +5,7 @@
     "email": "support@apify.com"
   },
   "metadata": {
-    "description": "Official Apify agent skills for web scraping, data extraction, and automation",
+    "description": "Official Apify Agent Skills for web scraping, data extraction, and automation",
     "version": "1.6.1"
   },
   "plugins": [
@@ -203,6 +203,29 @@
       "version": "1.4.1"
     },
     {
+      "name": "apify-ecommerce",
+      "source": "./skills/apify-ecommerce",
+      "skills": "./",
+      "description": "Scrape e-commerce data for pricing intelligence, customer sentiment, product research, quality analysis, and supply chain monitoring across Amazon, Walmart, eBay, IKEA, and 50+ marketplaces",
+      "keywords": [
+        "ecommerce",
+        "pricing",
+        "reviews",
+        "sentiment",
+        "products",
+        "sellers",
+        "amazon",
+        "walmart",
+        "ebay",
+        "MAP",
+        "competitor",
+        "research",
+        "supply-chain"
+      ],
+      "category": "data-extraction",
+      "version": "1.0.0"
+    },
+    {
       "name": "apify-actor-development",
       "source": "./skills/apify-actor-development",
       "skills": "./",
@@ -234,6 +257,25 @@
       "commands": [
         "./commands/create-actor.md"
       ]
+    },
+    {
+      "name": "apify-actorization",
+      "source": "./skills/apify-actorization",
+      "skills": "./",
+      "description": "Convert existing projects into Apify Actors - serverless cloud programs. Actorize JavaScript/TypeScript (SDK with Actor.init/exit), Python (async context manager), or any language (CLI wrapper). Use when migrating code to Apify, wrapping CLI tools as Actors, or adding Actor SDK to existing projects.",
+      "keywords": [
+        "actorization",
+        "convert",
+        "migrate",
+        "actor",
+        "apify",
+        "sdk",
+        "deployment",
+        "crawlee",
+        "serverless"
+      ],
+      "category": "development",
+      "version": "1.0.0"
     }
   ]
 }
