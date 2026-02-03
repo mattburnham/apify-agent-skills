@@ -1,6 +1,6 @@
-# Apify agent skills
+# Apify Agent Skills
 
-Official Apify agent skills for web scraping, data extraction, and automation. Works with Claude Code, Cursor, Codex, Gemini CLI, and other AI coding assistants.
+Official Apify Agent Skills for web scraping, data extraction, and automation. Works with Claude Code, Cursor, Codex, Gemini CLI, and other AI coding assistants.
 
 ## Available skills
 
