@@ -89,6 +89,7 @@ Use the appropriate CLI command based on the user's language choice. Additional 
 
 **✗ Don't:**
 - Use `npm start`, `npm run start`, `npx apify run`, or similar commands to run actors (use `apify run` instead)
+- Assume local storage from `apify run` is pushed to or visible in the Apify Console — it is local-only; deploy with `apify push` and run on the platform to see results in the Console
 - Rely on `Dataset.getInfo()` for final counts on Cloud
 - Use browser crawlers when HTTP/Cheerio works
 - Hard code values that should be in input schema or environment variables
@@ -127,6 +128,12 @@ storage/key_value_stores/default/INPUT.json
 
 This file should contain the input parameters defined in your `.actor/input_schema.json`. The actor will read this input when running locally, mirroring how it receives input on the Apify platform.
 
+**IMPORTANT - Local storage is NOT synced to the Apify Console:**
+- Running `apify run` stores all data (datasets, key-value stores, request queues) **only on your local filesystem** in the `storage/` directory.
+- This data is **never** automatically uploaded or pushed to the Apify platform. It exists only on your machine.
+- To verify results on the Apify Console, you must deploy the Actor with `apify push` and then run it on the platform.
+- Do **not** rely on checking the Apify Console to verify results from local runs — instead, inspect the local `storage/` directory or check the Actor's log output.
+
 ## Standby Mode
 
 See [references/standby-mode.md](references/standby-mode.md) for complete standby mode documentation including readiness probe implementation for JavaScript/TypeScript and Python.
@@ -140,7 +147,7 @@ See [references/standby-mode.md](references/standby-mode.md) for complete standb
 └── output_schema.json   # Output storage and display templates
 src/
 └── main.js/ts/py       # Actor entry point
-storage/                # Local storage (mirrors Cloud)
+storage/                # Local-only storage (NOT synced to Apify Console)
 ├── datasets/           # Output items (JSON objects)
 ├── key_value_stores/   # Files, config, INPUT
 └── request_queues/     # Pending crawl requests
